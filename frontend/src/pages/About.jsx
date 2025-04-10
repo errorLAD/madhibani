@@ -8,16 +8,31 @@ const About = () => {
     <div>
 
       <div className='text-2xl text-center pt-8 border-t'>
-          <Title text1={'ABOUT'} text2={'US'} />
+          <Title text1={'ANJU'} text2={'MISHRA'} />
       </div>
 
       <div className='my-10 flex flex-col md:flex-row gap-16'>
-          <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
-          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-              <p>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</p>
-              <p>Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.</p>
-              <b className='text-gray-800'>Our Mission</b>
-              <p>Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.</p>
+          <img className='w-full md:max-w-[500px]' src="https://iili.io/3aDf3Xf.md.png" alt="" />
+          <div className='flex flex-col justify-center gap-6 md:w-2/4 text-yellow-700'>
+          Anju Mishra is a celebrated Mithila painting artist, deeply rooted in the traditional art form she learned from her grandmother. With a diploma in Mithila painting, she has exhibited her work across India and internationally, sharing the vibrant spirit of Mithila with the world.
+          Her dedication has earned her many prestigious awards, including:
+         <span class="text-red-900"> <br>
+         
+         </br><h1>AWARD</h1><br/>
+
+State Award – Bihar Government
+<br/>
+International Bestiez Award – Jaipur
+<br/>
+Bihar Shree Ratna Award – Patna
+<br/>
+Prerak Award – New Delhi
+<br/>
+Mithila Lok Kala Samman – Patna
+</span>
+Anju is also a passionate mentor and changemaker. She has trained over 500+ girls in rural areas, not only teaching them art but also helping them become self-reliant women entrepreneurs. Through her guidance, many have started their own small businesses, carrying forward the tradition and earning livelihoods with pride.
+
+A proud mother of two, Anju continues to spread the beauty of Mithila painting while uplifting communities — one brushstroke at a time.
           </div>
       </div>
 
