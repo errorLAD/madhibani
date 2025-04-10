@@ -1,33 +1,35 @@
 import React from 'react'
 import { assets } from '../assets/assets'
-
+import { Link, NavLink } from 'react-router-dom'
 const Footer = () => {
   return (
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
 
         <div>
-            <img src={assets.logo} className='mb-5 w-32' alt="" />
-            <p className='w-full md:w-2/3 text-gray-600'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            <img src="https://iili.io/3aQaLQI.md.png" className='mb-8 w-40' alt="" />
+            <p className='w-full md:w-2/3 text-red-900'>
+            We are an online marketplace dedicated to showcasing the timeless beauty of Mithila paintings. Each artwork is handcrafted by skilled artisans, reflecting Bihar’s rich cultural heritage. Our mission is to promote traditional art, support local artists, and bring authentic Mithila masterpieces to art lovers worldwide.
             </p>
         </div>
 
         <div>
-            <p className='text-xl font-medium mb-5'>COMPANY</p>
-            <ul className='flex flex-col gap-1 text-gray-600'>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Delivery</li>
-                <li>Privacy policy</li>
+            <p className='text-center text-xl font-medium mb-5'>COMPANY</p>
+            <ul className='flex flex-col gap-1 text-red-900'>
+                
+                <li> <NavLink to='/contact' className='flex flex-col items-center gap-1 text-yellow-800'>
+                 About us</NavLink></li>
+                 <li> <NavLink to='/contact' className='flex flex-col items-center gap-1 text-yellow-800'>
+                 Privacy policy</NavLink></li>
+               
             </ul>
         </div>
 
         <div>
-            <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
-            <ul className='flex flex-col gap-1 text-gray-600'>
-                <li>+1-212-456-7890</li>
-                <li>contact@foreveryou.com</li>
+            <p className='text-xl  font-medium mb-5'>GET IN TOUCH</p>
+            <ul className='flex flex-col gap-1 text-red-900'>
+                <li>8674913700</li>
+                <li>sdmithilaart@gmail.com</li>
             </ul>
         </div>
 

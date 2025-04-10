@@ -14,10 +14,12 @@ const LatestCollection = () => {
 
   return (
     <div className='my-10'>
-      <div className='text-center py-8 text-3xl'>
-          <Title text1={'LATEST'} text2={'COLLECTIONS'} />
-          <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.
+      <div className='text-center py-8 text-2xl'>
+       
+          <Title className="text-red-800"text1={'  LATEST'} text2={'MITHILA PAINTING COLLECTIONS  '} />
+      
+          <p className='w-3/4 m-auto text-xxs sm:text-sm md:text-base text-red-800'>
+           <span class="max-sm:hidden"> Discover the charm of tradition with our newest collection of Mithila paintings</span>
           </p>
       </div>
 
