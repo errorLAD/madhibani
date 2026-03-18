@@ -9,13 +9,18 @@ const Hero = () => {
             <div className='text-[#414141]'>
                 <div className='flex items-center gap-2'>
                     <p className='w-8 md:w-11 h-[2px] bg-[#414141] text-green-800'></p>
-                    <p className=' font-medium text-sm text-yellow-600 md:text-base'>HANDCRAFTED BY</p>
+                    <p className=' font-medium text-sm text-yellow-600 md:text-base'>HANDPAINTED BY</p>
                 </div>
                 <h1 className='prata-regular text-3xl sm:py-3 lg:text-5xl leading-relaxed text-red-800'>Anju Mishra</h1>
                 <div className='flex items-center gap-2'>
                     <p className='font-semibold text-sm text-yellow-600 md:text-base'> STATE AWARD ARTIST</p>
                     <p className='w-8 md:w-11 h-[1px] bg-[#414141]'></p>
                 </div>
+                              <div className='flex items-center gap-2'>
+                    <p className='font-semibold text-sm text-yellow-600 md:text-base'> DIPLOMA IN MADHBANI PAINTING</p>
+                    <p className='w-8 md:w-11 h-[1px] bg-[#414141]'></p>
+                </div>
+
             </div>
       </div>
       {/* Hero Right Side   https://iili.io/3aP4ETN.md.png */}
