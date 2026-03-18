@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
 
         <div>
-            <img src="https://iili.io/3aQaLQI.md.png" className='mb-8 w-40' alt="" />
+            <img src="https://i.ibb.co/8DS84MBR/Blue-and-Black-Minimalist-Brand-Logo-13-1-removebg-preview.png" className='mb-8 w-40' alt="" />
             <p className='w-full md:w-2/3 text-red-900'>
             We are an online marketplace dedicated to showcasing the timeless beauty of Mithila paintings. Each artwork is handcrafted by skilled artisans, reflecting Bihar’s rich cultural heritage. Our mission is to promote traditional art, support local artists, and bring authentic Mithila masterpieces to art lovers worldwide.
             </p>
