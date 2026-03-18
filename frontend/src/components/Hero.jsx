@@ -18,8 +18,8 @@ const Hero = () => {
                 </div>
             </div>
       </div>
-      {/* Hero Right Side */}
-      <img className='w-full sm:w-1/2' src="https://iili.io/3aP4ETN.md.png" alt="" />
+      {/* Hero Right Side   https://iili.io/3aP4ETN.md.png */}
+      <img className='w-full sm:w-1/2' src="https://i.ibb.co/S7fFS6gw/cold-smooth-tasty-1.png" alt="" />
     </div>
   )
 }
