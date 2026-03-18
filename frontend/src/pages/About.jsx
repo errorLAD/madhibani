@@ -30,7 +30,7 @@ Prerak Award – New Delhi
 <br/>
 Mithila Lok Kala Samman – Patna
 </span>
-Anju is also a passionate mentor and changemaker. She has trained over 500+ girls in rural areas, not only teaching them art but also helping them become self-reliant women entrepreneurs. Through her guidance, many have started their own small businesses, carrying forward the tradition and earning livelihoods with pride.
+Anju is also a passionate mentor and changemaker. She has trained over 5000+ girls in rural areas, not only teaching them art but also helping them become self-reliant women entrepreneurs. Through her guidance, many have started their own small businesses, carrying forward the tradition and earning livelihoods with pride.
 
 A proud mother of two, Anju continues to spread the beauty of Mithila painting while uplifting communities — one brushstroke at a time.
           </div>
