@@ -14,8 +14,8 @@ const Add = ({token}) => {
    const [name, setName] = useState("");
    const [description, setDescription] = useState("");
    const [price, setPrice] = useState("");
-   const [category, setCategory] = useState("saree");
-   const [subCategory, setSubCategory] = useState("Homedecor");
+   const [category, setCategory] = useState("Men");
+   const [subCategory, setSubCategory] = useState("Topwear");
    const [bestseller, setBestseller] = useState(false);
    const [sizes, setSizes] = useState([]);
 
@@ -100,20 +100,18 @@ const Add = ({token}) => {
             <div>
               <p className='mb-2'>Product category</p>
               <select onChange={(e) => setCategory(e.target.value)} className='w-full px-3 py-2'>
-                  <option value="Saree">Saree</option>
-                  <option value="Duptta">Duptta </option>
-                  <option value="Homedecor">Home decor</option>
-                 
+                  <option value="Men">Men</option>
+                  <option value="Women">Women</option>
+                  <option value="Kids">Kids</option>
               </select>
             </div>
 
             <div>
               <p className='mb-2'>Sub category</p>
               <select onChange={(e) => setSubCategory(e.target.value)} className='w-full px-3 py-2'>
-             
-                  <option value="Children">Children</option>
-                  <option value="Homedecor">Home Decor</option>
-                  <option value="Other">Other</option>
+                  <option value="Topwear">Topwear</option>
+                  <option value="Bottomwear">Bottomwear</option>
+                  <option value="Winterwear">Winterwear</option>
               </select>
             </div>
 
@@ -146,7 +144,6 @@ const Add = ({token}) => {
             <div onClick={()=>setSizes(prev => prev.includes("XXL") ? prev.filter( item => item !== "XXL") : [...prev,"XXL"])}>
               <p className={`${sizes.includes("XXL") ? "bg-pink-100" : "bg-slate-200" } px-3 py-1 cursor-pointer`}>XXL</p>
             </div>
-         
           </div>
         </div>
 
