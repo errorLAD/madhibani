@@ -107,6 +107,12 @@ const Collection = () => {
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Kurta'} onChange={toggleCategory}/> Kurta
             </p>
+               <p className='flex gap-2'>
+              <input className='w-3' type="checkbox" value={'Kurtiset'} onChange={toggleCategory}/> Kurti Set
+            </p>
+                <p className='flex gap-2'>
+              <input className='w-3' type="checkbox" value={'Shortkurti'} onChange={toggleCategory}/> Short kurti 
+            </p>
              <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'WallHanging'} onChange={toggleCategory}/> Wall Hanging
             </p>
@@ -115,6 +121,9 @@ const Collection = () => {
             </p>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Ketli'} onChange={toggleCategory}/> ketli
+            </p>
+              <p className='flex gap-2'>
+              <input className='w-3' type="checkbox" value={'Bedsheet'} onChange={toggleCategory}/> Bedsheet
             </p>
            <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Other'} onChange={toggleCategory}/> Other
@@ -134,7 +143,7 @@ const Collection = () => {
               <input className='w-3' type="checkbox" value={'Woman'} onChange={toggleSubCategory}/> Woman
             </p>
             <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'Children'} onChange={toggleSubCategory}/> Children
+              <input className='w-3' type="checkbox" value={'Kid'} onChange={toggleSubCategory}/> Kid
             </p>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Homedecor'} onChange={toggleSubCategory}/> Home Decor
