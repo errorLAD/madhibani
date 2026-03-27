@@ -14,7 +14,7 @@ const Contact = () => {
       <div className='my-10 flex flex-col justify-center md:flex-row gap-10 mb-28'>
         <img className='w-full md:max-w-[480px]' src='https://iili.io/3aDrd9n.md.jpg' alt="" />
         <div className='flex flex-col justify-center items-start gap-6'>
-        <Title  text2={'MADHIBANIHAAT.COM'} />
+        <Title  text2={'MADHIBANIRANG.COM'} />
           <p className='  text-gray-600'>
           MadhubaniHaat.com is an exclusive online marketplace dedicated to promoting the rich heritage of Mithila (Madhubani) paintings. Rooted in the cultural heart of Bihar, this traditional art form is known for its intricate patterns, natural colors, and storytelling through symbolism.
 
