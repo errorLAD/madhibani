@@ -140,7 +140,7 @@ const Collection = () => {
               <input className='w-3' type="checkbox" value={'Man'} onChange={toggleSubCategory}/> Man
             </p>
             <p className='flex gap-2'>
-              <input className='w-3' type="checkbox" value={'women'} onChange={toggleSubCategory}/> Women
+              <input className='w-3' type="checkbox" value={'Woman'} onChange={toggleSubCategory}/> Woman
             </p>
             <p className='flex gap-2'>
               <input className='w-3' type="checkbox" value={'Kid'} onChange={toggleSubCategory}/> Kid
