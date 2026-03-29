@@ -12,7 +12,7 @@ const About = () => {
       </div>
 
       <div className='my-10 flex flex-col md:flex-row gap-16'>
-          <img className='w-full md:max-w-[500px]' src="https://iili.io/3aDf3Xf.md.png" alt="" />
+          <img className='w-full md:max-w-[500px]' src="https://i.ibb.co/pr2Z8bM4/Whats-App-Image-2026-03-29-at-4-26-39-PM.jpg" alt="" />
           <div className='flex flex-col justify-center gap-6 md:w-2/4 text-yellow-700'>
           Anju Mishra is a celebrated Mithila painting artist, deeply rooted in the traditional art form she learned from her grandmother. With a diploma in Mithila painting, she has exhibited her work across India and internationally, sharing the vibrant spirit of Mithila with the world.
           Her dedication has earned her many prestigious awards, including:
