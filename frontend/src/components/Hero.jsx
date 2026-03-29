@@ -27,7 +27,7 @@ const Hero = () => {
             </div>
       </div>
       {/* Hero Right Side   https://iili.io/3aP4ETN.md.png */}
-      <img className='w-full sm:w-1/2' src="https://i.ibb.co/bj3y112T/cold-smooth-tasty-1.png" alt="" />
+      <img className='w-full sm:w-1/2' src="https://i.ibb.co/LdsBkybN/cold-smooth-tasty-2.png" alt="" />
       <a
       href={whatsappUrl}
       target="_blank"
