@@ -102,7 +102,7 @@ const Product = () => {
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p className="text-red-900 font-bold">100% Original product.</p>
             <p>Each piece is authentically handmade by skilled Mithila artisans, not machine-made.</p>
-            <p>Crafted with natural colors, traditional techniques, and cultural love.</p>
+            <p>Crafted with colors, traditional techniques, and cultural love.</p>
             <p>Every purchase supports rural artists and keeps India’s folk art heritage alive</p>
           </div>
         </div>
