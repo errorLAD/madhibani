@@ -2,7 +2,7 @@ import React from 'react'
 import { assets } from '../assets/assets'
 
 const Hero = () => {
-  const phoneNumber = "917004197301"; // Your number with country code
+  const phoneNumber = "918674913700"; // Your number with country code
   const message = encodeURIComponent("Hello! I'm interested in your Madhubani paintings.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   return (
