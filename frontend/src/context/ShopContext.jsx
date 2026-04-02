@@ -9,7 +9,7 @@ const ShopContextProvider = (props) => {
 
     const currency = '₹';
     const delivery_fee = 10;
-    const backendUrl = import.meta.env.VITE_BACKEND_URL
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000'
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const [cartItems, setCartItems] = useState({});
@@ -45,11 +45,14 @@ const ShopContextProvider = (props) => {
             try {
 
                 await axios.post(backendUrl + '/api/cart/add', { itemId, size }, { headers: { token } })
+                toast.success('Item added to cart!')
 
             } catch (error) {
                 console.log(error)
                 toast.error(error.message)
             }
+        } else {
+            toast.success('Item added to cart!')
         }
 
     }
