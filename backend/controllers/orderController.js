@@ -147,7 +147,40 @@ const verifyRazorpay = async (req, res) => {
 const allOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({})
-        res.json({ success: true, orders })
+        
+        // Populate user email for each order
+        const ordersWithEmail = await Promise.all(
+            orders.map(async (order) => {
+                try {
+                    console.log('Looking for user with ID:', order.userId)
+                    // Try to find user by ID (handle both string and ObjectId)
+                    let user = null
+                    if (order.userId) {
+                        user = await userModel.findById(order.userId)
+                        // If not found, try to convert to ObjectId and search again
+                        if (!user) {
+                            const { ObjectId } = await import('mongoose')
+                            if (ObjectId.isValid(order.userId)) {
+                                user = await userModel.findById(new ObjectId(order.userId))
+                            }
+                        }
+                    }
+                    console.log('Found user:', user ? user.email : 'Not found')
+                    return {
+                        ...order.toObject(),
+                        userEmail: user ? user.email : 'N/A'
+                    }
+                } catch (err) {
+                    console.log('Error finding user:', err.message)
+                    return {
+                        ...order.toObject(),
+                        userEmail: 'N/A'
+                    }
+                }
+            })
+        )
+        
+        res.json({ success: true, orders: ordersWithEmail })
     } catch (error) {
         console.log(error); res.json({ success: false, message: error.message })
     }
@@ -185,4 +218,15 @@ const updatePayment = async (req, res) => {
     }
 }
 
-export { placeOrder, placeOrderStripe, placeOrderRazorpay, verifyStripe, verifyRazorpay, allOrders, userOrders, updateStatus, updatePayment }
+const deleteOrder = async (req, res) => {
+    try {
+        const { orderId } = req.body
+        const deletedOrder = await orderModel.findByIdAndDelete(orderId)
+        if (!deletedOrder) return res.json({ success: false, message: 'Order not found' })
+        res.json({ success: true, message: 'Order deleted successfully' })
+    } catch (error) {
+        console.log(error); res.json({ success: false, message: error.message })
+    }
+}
+
+export { placeOrder, placeOrderStripe, placeOrderRazorpay, verifyStripe, verifyRazorpay, allOrders, userOrders, updateStatus, updatePayment, deleteOrder }

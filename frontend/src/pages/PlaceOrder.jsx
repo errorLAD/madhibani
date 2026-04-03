@@ -11,8 +11,7 @@ const PlaceOrder = () => {
 
     const [method, setMethod]     = useState('cod')
     const [formData, setFormData] = useState({
-        firstName: '', lastName: '', email: '',
-        street: '', city: '', state: '',
+        fullName: '', street: '', city: '', state: '',
         zipcode: '', country: '', phone: ''
     })
 
@@ -56,8 +55,7 @@ const PlaceOrder = () => {
                 description: 'Handmade Madhubani Paintings',
                 order_id:    rzpOrder.id,          // REAL Razorpay order id e.g. order_XXXXXXXX
                 prefill: {
-                    name:    `${formData.firstName} ${formData.lastName}`,
-                    email:   formData.email,
+                    name:    formData.fullName,
                     contact: formData.phone
                 },
                 theme: { color: '#8B0000' },
@@ -158,10 +156,8 @@ const PlaceOrder = () => {
             <div className='flex flex-col gap-4 w-full sm:max-w-[480px]'>
                 <div className='text-xl sm:text-2xl my-3'><h1 className='font-bold'>Delivery Information</h1></div>
                 <div className='flex gap-3'>
-                    <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text"   placeholder='First name' />
-                    <input required onChange={onChangeHandler} name='lastName'  value={formData.lastName}  className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text"   placeholder='Last name' />
+                    <input required onChange={onChangeHandler} name='fullName' value={formData.fullName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text"   placeholder='Full name' />
                 </div>
-                <input required onChange={onChangeHandler} name='email'   value={formData.email}   className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="email"  placeholder='Email address' />
                 <input required onChange={onChangeHandler} name='street'  value={formData.street}  className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text"   placeholder='Street' />
                 <div className='flex gap-3'>
                     <input required onChange={onChangeHandler} name='city'  value={formData.city}  className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='City' />

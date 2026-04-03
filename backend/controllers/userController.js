@@ -99,5 +99,36 @@ const adminLogin = async (req, res) => {
     }
 }
 
+// Route to list all users for admin
+const listUsers = async (req, res) => {
+    try {
+        const users = await userModel.find({}).select('-password') // Exclude password from results
+        res.json({ success: true, users })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message })
+    }
+}
 
-export { loginUser, registerUser, adminLogin }
+// Route to delete user for admin
+const deleteUser = async (req, res) => {
+    try {
+        const { userId } = req.body
+        
+        // Check if user exists
+        const user = await userModel.findById(userId)
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+        
+        // Delete the user
+        await userModel.findByIdAndDelete(userId)
+        res.json({ success: true, message: 'User deleted successfully' })
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message })
+    }
+}
+
+
+export { loginUser, registerUser, adminLogin, listUsers, deleteUser }

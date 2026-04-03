@@ -12,7 +12,11 @@ const ShopContextProvider = (props) => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000'
     const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
-    const [cartItems, setCartItems] = useState({});
+    const [cartItems, setCartItems] = useState(() => {
+        // Load cart from localStorage on initial load
+        const savedCart = localStorage.getItem('cartItems');
+        return savedCart ? JSON.parse(savedCart) : {};
+    });
     const [products, setProducts] = useState([]);
     const [token, setToken] = useState('')
     const navigate = useNavigate();
@@ -127,12 +131,46 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    const getUserCart = async ( token ) => {
+    const getUserCart = async (token) => {
         try {
-            
-            const response = await axios.post(backendUrl + '/api/cart/get',{},{headers:{token}})
+
+            const response = await axios.post(backendUrl + '/api/cart/get', {}, { headers: { token } })
             if (response.data.success) {
-                setCartItems(response.data.cartData)
+                // Merge guest cart (localStorage) with user cart (database)
+                const guestCart = localStorage.getItem('cartItems');
+                const guestCartData = guestCart ? JSON.parse(guestCart) : {};
+
+                // If guest cart has items, merge them with user cart
+                if (Object.keys(guestCartData).length > 0) {
+                    const mergedCart = { ...response.data.cartData };
+
+                    // Add guest cart items to merged cart
+                    for (const itemId in guestCartData) {
+                        if (!mergedCart[itemId]) {
+                            mergedCart[itemId] = {};
+                        }
+                        for (const size in guestCartData[itemId]) {
+                            if (guestCartData[itemId][size] > 0) {
+                                mergedCart[itemId][size] = (mergedCart[itemId][size] || 0) + guestCartData[itemId][size];
+                            }
+                        }
+                    }
+
+                    setCartItems(mergedCart);
+                    // Clear guest cart after merging
+                    localStorage.removeItem('cartItems');
+
+                    // Update server with merged cart
+                    for (const itemId in mergedCart) {
+                        for (const size in mergedCart[itemId]) {
+                            if (mergedCart[itemId][size] > 0) {
+                                await axios.post(backendUrl + '/api/cart/add', { itemId, size }, { headers: { token } })
+                            }
+                        }
+                    }
+                } else {
+                    setCartItems(response.data.cartData);
+                }
             }
         } catch (error) {
             console.log(error)
@@ -143,6 +181,13 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         getProductsData()
     }, [])
+
+    // Save cart to localStorage whenever cartItems changes (for guest users)
+    useEffect(() => {
+        if (!token) {
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+    }, [cartItems, token])
 
     useEffect(() => {
         if (!token && localStorage.getItem('token')) {

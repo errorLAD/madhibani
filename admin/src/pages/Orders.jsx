@@ -44,6 +44,20 @@ const Orders = ({ token }) => {
     }
   }
 
+  const deleteOrderHandler = async (orderId) => {
+    try {
+      const response = await axios.post(backendUrl + '/api/order/delete', {orderId}, { headers: {token}})
+      if (response.data.success) {
+        toast.success(response.data.message)
+        await fetchAllOrders()
+      } else {
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   useEffect(() => {
     fetchAllOrders();
   }, [token])
@@ -67,7 +81,8 @@ const Orders = ({ token }) => {
                     }
                   })}
                 </div>
-                <p className='mt-3 mb-2 font-medium'>{order.address.firstName + " " + order.address.lastName}</p>
+                <p className='mt-3 mb-2 font-medium'>{order.address.fullName || order.address.firstName + " " + order.address.lastName}</p>
+                <p className='text-sm text-gray-600 mb-2'>Email: {order.userEmail || 'N/A'}</p>
                 <div>
                   <p>{order.address.street + ","}</p>
                   <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
@@ -81,13 +96,21 @@ const Orders = ({ token }) => {
                 <p>Date : {new Date(order.date).toLocaleDateString()}</p>
               </div>
               <p className='text-sm sm:text-[15px]'>{currency}{order.amount}</p>
-              <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
-                <option value="Order Placed">Order Placed</option>
-                <option value="Packing">Packing</option>
-                <option value="Shipped">Shipped</option>
-                <option value="Out for delivery">Out for delivery</option>
-                <option value="Delivered">Delivered</option>
-              </select>
+              <div className='flex flex-col gap-2'>
+                <select onChange={(event)=>statusHandler(event,order._id)} value={order.status} className='p-2 font-semibold'>
+                  <option value="Order Placed">Order Placed</option>
+                  <option value="Packing">Packing</option>
+                  <option value="Shipped">Shipped</option>
+                  <option value="Out for delivery">Out for delivery</option>
+                  <option value="Delivered">Delivered</option>
+                </select>
+                <button 
+                  onClick={() => deleteOrderHandler(order._id)}
+                  className='bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded text-sm font-medium transition-colors'
+                >
+                  Delete Order
+                </button>
+              </div>
             </div>
           ))
         }

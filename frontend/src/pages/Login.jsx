@@ -12,6 +12,11 @@ const Login = () => {
   const [password,setPasword] = useState('')
   const [email,setEmail] = useState('')
 
+  // Get the redirect path from localStorage or default to home
+  const getRedirectPath = () => {
+    return localStorage.getItem('redirectPath') || '/';
+  }
+
   const onSubmitHandler = async (event) => {
       event.preventDefault();
       try {
@@ -21,6 +26,11 @@ const Login = () => {
           if (response.data.success) {
             setToken(response.data.token)
             localStorage.setItem('token',response.data.token)
+            
+            // Redirect to previous page or home
+            const redirectPath = getRedirectPath();
+            navigate(redirectPath);
+            localStorage.removeItem('redirectPath'); // Clear redirect path
           } else {
             toast.error(response.data.message)
           }
@@ -31,6 +41,11 @@ const Login = () => {
           if (response.data.success) {
             setToken(response.data.token)
             localStorage.setItem('token',response.data.token)
+            
+            // Redirect to previous page or home
+            const redirectPath = getRedirectPath();
+            navigate(redirectPath);
+            localStorage.removeItem('redirectPath'); // Clear redirect path
           } else {
             toast.error(response.data.message)
           }
